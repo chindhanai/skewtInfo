@@ -5,7 +5,6 @@ Version: 0.1.0
 Author: Chindhanai Uthaisaad
 Maintainer: Chindhanai Uthaisaad <chindu@uw.edu>, Douglas R. Martin <doug@amath.washington.edu>
 Description: Compute the information matrix corresponding to the skew-t distribution defined by Adelchi Azzalini.
-    
 License: What license is it under?
 Depends:
     R (>= 3.0.0),
