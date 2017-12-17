@@ -166,18 +166,19 @@ S_alphanu <- function(y, xi, omega, alpha, nu){
 }
 
 
-stObsInfoMat <- function(y, xi, omega, alpha, nu) {
+stObsInfoMat <- function(n, xi, omega, alpha, nu) {
 
-  S11 <- S_xixi(y, xi, omega, alpha, nu)
-  S12 <- S_xiomega(y, xi, omega, alpha, nu)
-  S13 <- S_xialpha(y, xi, omega, alpha, nu)
-  S14 <- S_xinu(y, xi, omega, alpha, nu)
-  S22 <- S_omegaomega(y, xi, omega, alpha, nu)
-  S23 <- S_omegaalpha(y, xi, omega, alpha, nu)
-  S24 <- S_omeganu(y, xi, omega, alpha, nu)
-  S33 <- S_alphaalpha(y, xi, omega, alpha, nu)
-  S34 <- S_alphanu(y, xi, omega, alpha, nu)
-  S44 <- S_nunu(y, xi, omega, alpha, nu)
+  r <- rst(n, xi, omega, alpha, nu)
+  S11 <- mean(sapply(r, S_xixi,xi, omega, alpha, nu))
+  S12 <- mean(sapply(r, S_xiomega,xi, omega, alpha, nu))
+  S13 <- mean(sapply(r, S_xialpha,xi, omega, alpha, nu))
+  S14 <- mean(sapply(r, S_xinu,xi, omega, alpha, nu))
+  S22 <- mean(sapply(r, S_omegaomega,xi, omega, alpha, nu))
+  S23 <- mean(sapply(r, S_omegaalpha,xi, omega, alpha, nu))
+  S24 <- mean(sapply(r, S_omeganu,xi, omega, alpha, nu))
+  S33 <- mean(sapply(r, S_alphaalpha,xi, omega, alpha, nu))
+  S34 <- mean(sapply(r, S_alphanu,xi, omega, alpha, nu))
+  S44 <- mean(sapply(r, S_nunu,xi, omega, alpha, nu))
 
   return(matrix(c(S11, S12, S13, S14,
                   S12, S22, S23, S24,
