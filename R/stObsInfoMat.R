@@ -180,7 +180,7 @@ stObsInfoMat <- function(y, dp) {
   S34 <- mean(sapply(y, S_alphanu,xi, omega, alpha, nu))
   S44 <- mean(sapply(y, S_nunu,xi, omega, alpha, nu))
 
-  return(matrix(c(S11, S12, S13, S14,
+  return(-matrix(c(S11, S12, S13, S14,
                   S12, S22, S23, S24,
                   S13, S23, S33, S34,
                   S14, S24, S34, S44),
