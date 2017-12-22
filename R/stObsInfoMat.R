@@ -166,9 +166,9 @@ S_alphanu <- function(y, xi, omega, alpha, nu){
 }
 
 
-stObsInfoMat <- function(n, xi, omega, alpha, nu) {
+stObsInfoMat <- function(y, dp) {
 
-  r <- rst(n, xi, omega, alpha, nu)
+  xi=dp[1]; omega=dp[2]; alpha=dp[3]; nu=dp[4]
   S11 <- mean(sapply(r, S_xixi,xi, omega, alpha, nu))
   S12 <- mean(sapply(r, S_xiomega,xi, omega, alpha, nu))
   S13 <- mean(sapply(r, S_xialpha,xi, omega, alpha, nu))
