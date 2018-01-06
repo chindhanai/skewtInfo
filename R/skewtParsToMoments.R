@@ -2,7 +2,7 @@
 #'
 #' @description Compute the first four moments from the four skew-t parameters
 
-skewtTransform <- function(x) {
+skewtParsToMoments <- function(x) {
   t <- numeric(length(x))
   if (nu == Inf)
     return(sn.cumulants(x[1], x[2], x[3]))
