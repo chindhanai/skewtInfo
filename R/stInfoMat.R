@@ -1,3 +1,10 @@
+#'
+#' @title Skew-t Information Matrix Computation
+#'
+#' @description Compute the skew-t observed information analytically, and
+#' compute expected information matrix numerically.
+
+
 
 stInfoMat <- function(y=NULL, dp, type = c("expected", "observed")) {
 
