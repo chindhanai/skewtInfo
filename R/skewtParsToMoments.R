@@ -4,7 +4,7 @@
 
 skewtParsToMoments <- function(x) {
   t <- numeric(length(x))
-  if (nu == Inf)
+  if (x[4] == Inf)
     return(sn.cumulants(x[1], x[2], x[3]))
 
   delta <- x[3]/sqrt(1+x[3]^2)
