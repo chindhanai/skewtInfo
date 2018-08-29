@@ -1,8 +1,33 @@
 #'
 #' @title Skew-t Information Matrix Computation
 #'
-#' @description Compute the skew-t observed information analytically, and
+#' @description Analytically compute skew-t observed information matrix, and
 #' compute expected information matrix numerically.
+#'
+#' @param y a vector of skew-t random samples. It is required when
+#' computing the observed information matrix.
+#' @param dp a vector of 4 elements of the direct skew-t parameters.
+#' @param type a character string with the type of information matrix
+#' to be computed
+#'
+#' @return
+#' A list of 4 elements:
+#' \item{dp}{the direct skew-t parameters used in the computation}
+#' \item{stInfoMat}{the expected information matrix when type = "expected",
+#' and the observed information matrix when type = "observed"}
+#' \item{SEMat}{the asymptotic standard errors of the skew-t parameters
+#' when type = "expected", and the element-wise standard error of the
+#' observed information matrix in the case oftype = "observed".}
+#' \item{type}{the type of information matrix from the computation}
+#'
+#' @author Chindhanai Uthaisaad
+#'
+#' @examples
+#' data("cusumData")
+#' results = cusumActMgr(portfolioName = "Parvest", benchmarkName = "RUS2500", data = cusumData)
+#' chartCusum(results, which = 1)
+#' chartCusum(results, which = c(1,2))
+#' @export
 
 
 
@@ -104,7 +129,7 @@ stInfoMat <- function(y=NULL, dp, type = c("expected", "observed")) {
               type = type))
 }
 
-# Observed Information Natrix functions -----------------------
+# Observed Information Matrix functions -----------------------
 gamma_integrand <- function(u,nu){
   dt(u,df=nu+1)*(((nu+2)*u^2)/((nu+1)*(nu+1+u^2))-log(1+u^2/(nu+1)))
 }
