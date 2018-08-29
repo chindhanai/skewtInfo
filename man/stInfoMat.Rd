@@ -6,7 +6,38 @@
 \usage{
 stInfoMat(y = NULL, dp, type = c("expected", "observed"))
 }
+\arguments{
+\item{y}{a vector of skew-t random variables used to compute an observed
+information matrix. Its default is NULL.}
+
+\item{dp}{a skew-t direct parameter used to compute an expected information matrix,
+or an observed information matrix}
+
+\item{type}{a character string with the type of information matrix
+to be computed}
+}
+\value{
+A list of 4 elements:
+\item{dp}{the direct skew-t parameters used in the computation}
+\item{stInfoMat}{the expected information matrix when type = "expected",
+and the observed information matrix when type = "observed"}
+\item{SEMat}{the asymptotic standard errors of the skew-t parameters
+when type = "expected", and the element-wise standard error of the
+observed information matrix in the case oftype = "observed".}
+\item{type}{the type of information matrix from the computation}
+}
 \description{
-Compute the skew-t observed information analytically, and
+Analytically compute skew-t observed information matrix, and
 compute expected information matrix numerically.
+}
+\examples{
+require("sn")
+data("Dreturns")
+dp <- st.mple(y = Dreturns, penalty = "Qpenalty")$dp
+stInfoMat(y = Dreturns, dp = dp, type = "observed")
+stInfoMat(dp = dp, type = "expected")
+
+}
+\author{
+Chindhanai Uthaisaad
 }

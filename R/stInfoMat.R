@@ -4,9 +4,10 @@
 #' @description Analytically compute skew-t observed information matrix, and
 #' compute expected information matrix numerically.
 #'
-#' @param y a vector of skew-t random samples. It is required when
-#' computing the observed information matrix.
-#' @param dp a vector of 4 elements of the direct skew-t parameters.
+#' @param y a vector of skew-t random variables used to compute an observed
+#' information matrix. Its default is NULL.
+#' @param dp a skew-t direct parameter used to compute an expected information matrix,
+#' or an observed information matrix
 #' @param type a character string with the type of information matrix
 #' to be computed
 #'
@@ -23,10 +24,12 @@
 #' @author Chindhanai Uthaisaad
 #'
 #' @examples
-#' data("cusumData")
-#' results = cusumActMgr(portfolioName = "Parvest", benchmarkName = "RUS2500", data = cusumData)
-#' chartCusum(results, which = 1)
-#' chartCusum(results, which = c(1,2))
+#' require("sn")
+#' data("Dreturns")
+#' dp <- st.mple(y = Dreturns, penalty = "Qpenalty")$dp
+#' stInfoMat(y = Dreturns, dp = dp, type = "observed")
+#' stInfoMat(dp = dp, type = "expected")
+#'
 #' @export
 
 
