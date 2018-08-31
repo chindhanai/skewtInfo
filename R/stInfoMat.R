@@ -2,7 +2,7 @@
 #' @title Skew-t Information Matrix Computation
 #'
 #' @description Analytically compute skew-t observed information matrix, and
-#' compute expected information matrix numerically.
+#' compute skew-t expected information matrix numerically.
 #'
 #' @param y a vector of skew-t random variables used to compute an observed
 #' information matrix. Its default is NULL.

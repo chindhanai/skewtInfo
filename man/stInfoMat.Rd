@@ -28,7 +28,7 @@ observed information matrix in the case oftype = "observed".}
 }
 \description{
 Analytically compute skew-t observed information matrix, and
-compute expected information matrix numerically.
+compute skew-t expected information matrix numerically.
 }
 \examples{
 require("sn")

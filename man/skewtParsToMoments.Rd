@@ -2,10 +2,28 @@
 % Please edit documentation in R/skewtParsToMoments.R
 \name{skewtParsToMoments}
 \alias{skewtParsToMoments}
-\title{Skew-t parameter transfornation}
+\title{Conversion between parametrizations of a skew-t distribution}
 \usage{
-skewtParsToMoments(x)
+skewtParsToMoments(dp)
+}
+\arguments{
+\item{dp}{a skew-t direct parameter}
+}
+\value{
+A vector of the mean, standard deviation, skewness
+and excess kurtosis
 }
 \description{
-Compute the first four moments from the four skew-t parameters
+Compute the mean, standard deviation, skewness
+and excess kurtosis of the skew-t distribution from the parameters
+}
+\examples{
+require("sn")
+data("Dreturns")
+dp <- st.mple(y = Dreturns, penalty = "Qpenalty")$dp
+skewtParsToMoments(dp)
+
+}
+\author{
+Chindhanai Uthaisaad
 }
