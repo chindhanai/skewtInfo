@@ -221,7 +221,7 @@ kable(cov2cor(solve(expInfo_D2)), align = 'c', format = "latex", digits = 3, boo
 kable(cov2cor(solve(expInfo_D3)), align = 'c', format = "latex", digits = 3, booktabs = T) %>%
   kable_styling(position = "center")
 
-
+# Sample code for Monte Carlo Studies and Huge Dof detection
 set.seed(123)
 #####################################################################
 # Skew-t parameters corresponding to the second period of the returns
