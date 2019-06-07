@@ -113,7 +113,6 @@ curve(dst(x, dp = stFitD1), add=TRUE, col=4, lwd=1)
 legend("topright",legend=c("Skew-t","KDE"), lwd=2, col=c(4,3), bty="n", cex = 0.7)
 par(mfrow = c(1, 1))
 
-
 # Figure 6
 par(mfrow = c(1, 2))
 dens <- density(returns2, bw="SJ")
@@ -164,6 +163,7 @@ expInfo_D2 <- stInfoMat(dp = stFitD2, type = "expected")$stInfoMat  # stFitD2 co
 kable(expInfo_D2, align = 'c', format = "latex", digits = 3, booktabs = T) %>%
   kable_styling(position = "center")
 
+# Table 3
 set.seed(0)
 ###########################################################################
 # n <- 1e5  This value was used for paper
@@ -221,7 +221,7 @@ kable(cov2cor(solve(expInfo_D2)), align = 'c', format = "latex", digits = 3, boo
 kable(cov2cor(solve(expInfo_D3)), align = 'c', format = "latex", digits = 3, booktabs = T) %>%
   kable_styling(position = "center")
 
-# Sample code for Monte Carlo Studies and Huge Dof detection
+# Example for Monte Carlo Studies and Huge Dof detection
 set.seed(123)
 #####################################################################
 # Skew-t parameters corresponding to the second period of the returns
