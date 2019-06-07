@@ -1,4 +1,4 @@
-# install packages
+# install packages 
 cran = c("lattice", "sn", "kableExtra")
 github = c("chindhanai/skewtInfo")
 newCran <- cran[!(cran %in% installed.packages()[,"Package"])]
