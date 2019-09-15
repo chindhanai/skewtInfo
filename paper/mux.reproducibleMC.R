@@ -1,4 +1,4 @@
-# install packages 
+# install packages
 cran = c("lattice", "sn", "kableExtra")
 github = c("chindhanai/skewtInfo")
 newCran <- cran[!(cran %in% installed.packages()[,"Package"])]
@@ -13,7 +13,7 @@ library(kableExtra)
 library(skewtInfo)
 library(lattice)
 
-# Table 5
+# Table 4
 n <- c(50, 100, 200, 400)
 threshold <- c(20, 40, 100, 500, 1000)
 dat <- data.frame(row.names = c("Fit DoF > 20",
@@ -34,11 +34,11 @@ for(i in 1:length(n)) {
   }
 }
 
-# Table 5
+# Table 4
 kable(dat, align = 'c', format = "latex", booktabs = T) %>%
   kable_styling(position = "center")
 
-# Computations for Table 6
+# Computations for Table 5
 n <- c(100, 200, 400)
 fD1 <- data.frame(row.names = round(stFitD1, 3), matrix(nrow = 4, ncol = 6))
 fD2 <- data.frame(row.names = round(stFitD2, 3), matrix(nrow = 4, ncol = 6))
@@ -87,7 +87,7 @@ for(j in 1:3) {
   }
 }
 
-# Table 6
+# Table 5
 kable(fD1, align = 'c', format = "latex", booktabs = T, digits = 3) %>%
   kable_styling(position = "center") %>%
   add_header_above(c("Theta" = 1, "MC" = 1, "RB%" = 1, "MC" = 1, "RB%" = 1, "MC" = 1, "RB%" = 1)) %>%
@@ -103,7 +103,7 @@ kable(fD3, align = 'c', format = "latex", booktabs = T, digits = 3) %>%
   add_header_above(c("Theta" = 1, "MC" = 1, "RB%" = 1, "MC" = 1, "RB%" = 1, "MC" = 1, "RB%" = 1)) %>%
   add_header_above(c("D3" = 1, "n = 100" = 2, "n = 200" = 2, "n = 400" = 2))
 
-# Computations for Table 7
+# Computations for Table 6
   n <- c(50, 100, 200, 400)
   threshold = 20
   D1 <- data.frame(row.names = round(stFitD1, 3), matrix(nrow = 4, ncol = 8))
@@ -149,7 +149,7 @@ kable(fD3, align = 'c', format = "latex", booktabs = T, digits = 3) %>%
   }
 }
 
-# Table 7
+# Table 6
 kable(D1[, -c(1,2)], align = 'c', format = "latex", booktabs = T, digits = 4) %>%
   kable_styling(position = "center") %>%
   add_header_above(c("Theta" = 1, "MC" = 1, "RB%" = 1, "MC" = 1, "RB%" = 1, "MC" = 1, "RB%" = 1)) %>%
@@ -166,7 +166,7 @@ kable(D3[, -c(1,2)], align = 'c', format = "latex", booktabs = T, digits = 4) %>
   add_header_above(c("D3" = 1, "n = 100" = 2, "n = 200" = 2, "n = 400" = 2))
 
 
-# Computations for Table 8
+# Computations for Table 7
 n <- c(50, 100, 200, 400, 800)
 threshold <- 20
 SED2 <- data.frame(matrix(nrow = 20, ncol = 5))
@@ -206,7 +206,7 @@ for(j in 2:3) {
 # But the estimates none-the-less seem good, and go into Table 8 below
 ##########################################################################
 
-# Table 8
+# Table 7
 kable(cbind(SED2[, -c(1,2)], SED3[, 3:5]), align = 'c', format = "latex", booktabs = T, digits = 4,
       linesep = c("", "", "", "\\addlinespace")) %>%
   kable_styling(position = "center") %>%
@@ -217,11 +217,11 @@ kable(cbind(SED2[, -c(1,2)], SED3[, 3:5]), align = 'c', format = "latex", bookta
   group_rows("n = 800", 17, 20) %>%
   add_header_above(c("D2" = 3, "D3" = 3))
 
-# Figure 9
+# Figure 2
 #####################################################################
 # The code below produces some similar output and warnings as for the
-# code used to produce Table 8 above
-# Does produce the top and bottom figures in Figure 9
+# code used to produce Table 7 above
+# Does produce the top and bottom figures in Figure 2
 #####################################################################
 for (i in 1:length(n)) {
   infile <- paste("Data/5000/param", n[i], "_D", 2,".csv", sep="")
